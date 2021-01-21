@@ -3,7 +3,6 @@ package br.com.projetoIGO.control;
 
 import br.com.projetoIGO.model.DAO.LocadorDAO;
 
-
 /**
  *
  * @author samuel
@@ -15,7 +14,9 @@ public class ControladaLogin {
 	dao = new LocadorDAO();
     }
     
-    public boolean verificarAcesso(String cpf, String senha){
-       return dao.verificarAcesso(cpf, senha);
+   
+    
+    public boolean verificaAcesso(String cpf, String senha){
+        return dao.verificarAcesso(cpf, senha);        
     }
 }

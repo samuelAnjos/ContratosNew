@@ -102,7 +102,7 @@ public class TelaLogin extends javax.swing.JFrame {
 	String senha = jPasswordField1_senha.getText();
 	
 	if(verificarCampoPreenchidos(cpf,senha)){
-	    if(contro.verificarAcesso(cpf, senha)){
+	    if(contro.verificaAcesso(cpf, senha)){
 	    TelaPricipal telapricipal = new TelaPricipal();
 	    telapricipal.setVisible(true);
 	    dispose();
@@ -145,6 +145,10 @@ public class TelaLogin extends javax.swing.JFrame {
 	if(senha.equals("")){
 	    mensagem += "*Senha";
 	   resultado = false;
+	}
+	
+	if(!resultado){
+	   JOptionPane.showMessageDialog(null, mensagem);
 	}
 	return resultado;
     }

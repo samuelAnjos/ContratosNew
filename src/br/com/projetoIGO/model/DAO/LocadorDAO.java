@@ -13,16 +13,16 @@ public class LocadorDAO {
 
     private Conexao conexao;
 
-    public LocadorDAO(Locador locador) {
-	conexao = new Conexao();
+    public LocadorDAO() {
+	this.conexao = new Conexao();
     }
 
-    public LocadorDAO() {
-    }
+  
 
     public boolean salvarLocador(Locador locador) {
+	
 	try {
-	    String sql = " insert into locador(nome_locador,sexo_locador,profissao_locador,estado_civil_locador,rg_locador,cpf_locador,endereco_locador,num_end_locador,cep_end_locador,cod_cidade,senha)";
+	    String sql = " insert into locador(nome_locador,sexo_locador,profissao_locador,estado_civil_locador,rg_locador,cpf_locador,endereco_locador,num_end_locador,cep_end_locador,cod_cidade,senha) ";
 
 	    PreparedStatement pst = conexao.getConexao().prepareStatement(sql);
 	    pst.setString(1, locador.getNome_locador());
@@ -49,17 +49,19 @@ public class LocadorDAO {
 
     public boolean verificarAcesso(String cpf, String senha) {
 	try {
-	    String sql = "select 1 from locador where cpf_locador = ? and senha_locador = ?";
-	    
-	 PreparedStatement pst = conexao.getConexao().prepareStatement(sql);
-	 pst.setString(1, cpf);
-	 pst.setString(2, senha);
-	 ResultSet rs = pst.executeQuery();
-	 
-	 while(rs.next()){
-	     conexao.desconecta();
-	     return true;
-	 }
+	    String sql = "SELECT 1 FROM LOCADOR "
+		    + "WHERE cpf_locador = ? "
+		    + "and   senha = ?  ";
+
+	    PreparedStatement pst = conexao.getConexao().prepareStatement(sql);
+	    pst.setString(1, cpf);
+	    pst.setString(2, senha);
+	    ResultSet rs = pst.executeQuery();
+
+	    while (rs.next()) {
+		conexao.desconecta();
+		return true;
+	    }
 	} catch (Exception e) {
 	    System.out.println("Erro: " + e);
 	}
