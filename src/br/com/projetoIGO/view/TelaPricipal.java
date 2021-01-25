@@ -70,6 +70,7 @@ public class TelaPricipal extends javax.swing.JFrame {
         jMenu1.setText("Contratos");
 
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/projetoIGO/model/imagens/iconfinder_icon-arrow-right-b_211620.png"))); // NOI18N
         jMenuItem1.setText("Cidade");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,10 +80,12 @@ public class TelaPricipal extends javax.swing.JFrame {
         jMenu1.add(jMenuItem1);
 
         jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_I, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/projetoIGO/model/imagens/iconfinder_icon-arrow-right-b_211620.png"))); // NOI18N
         jMenuItem2.setText("Imóvel");
         jMenu1.add(jMenuItem2);
 
         jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/projetoIGO/model/imagens/iconfinder_icon-arrow-right-b_211620.png"))); // NOI18N
         jMenuItem3.setText("Locador");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,6 +99,7 @@ public class TelaPricipal extends javax.swing.JFrame {
         jMenu4.setText("Ajuda");
 
         jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/projetoIGO/model/imagens/iconfinder_icon-arrow-right-b_211620.png"))); // NOI18N
         jMenuItem5.setText("Sobre");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,6 +113,7 @@ public class TelaPricipal extends javax.swing.JFrame {
         jMenu2.setText("Opções");
 
         jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/projetoIGO/model/imagens/iconfinder_icon-arrow-right-b_211620.png"))); // NOI18N
         jMenuItem4.setText("Sair");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,7 +146,7 @@ public class TelaPricipal extends javax.swing.JFrame {
                 .addComponent(jLabel1_dt)
                 .addGap(18, 18, 18)
                 .addComponent(jDesktopPane2_Azul, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         setSize(new java.awt.Dimension(831, 551));
