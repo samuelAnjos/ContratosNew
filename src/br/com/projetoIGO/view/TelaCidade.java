@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.projetoIGO.view;
 
 import br.com.projetoIGO.control.ControladoraCidade2;
@@ -10,14 +5,17 @@ import br.com.projetoIGO.model.Entidades.Cidade;
 import br.com.projetoIGO.model.Entidades.Estado;
 import br.com.projetoIGO.model.Tabela.Tabela;
 import java.util.ArrayList;
-
+import javax.swing.JOptionPane;
+import javax.swing.ListSelectionModel;
 
 /**
  *
  * @author samuel
  */
 public class TelaCidade extends javax.swing.JInternalFrame {
+
     ControladoraCidade2 controo;
+
     /**
      * Creates new form TelaCidade
      */
@@ -27,7 +25,7 @@ public class TelaCidade extends javax.swing.JInternalFrame {
 	for (Estado estado : controo.ListarEstado()) {
 	    jComboBox1_estado.addItem(estado);
 	}
-	
+
 	carregarTabela();
     }
 
@@ -46,10 +44,10 @@ public class TelaCidade extends javax.swing.JInternalFrame {
         jTextField1_Usuario = new javax.swing.JTextField();
         jComboBox1_estado = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
-        jLabel1Adicionar = new javax.swing.JLabel();
-        jLabel5_alterar = new javax.swing.JLabel();
-        jLabel6_salvar = new javax.swing.JLabel();
-        jLabel7_apagar = new javax.swing.JLabel();
+        jButton1_novo = new javax.swing.JButton();
+        jButton2_salvar = new javax.swing.JButton();
+        jButton3_alterar = new javax.swing.JButton();
+        jButton4_Excluir = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1_assuntos = new javax.swing.JTable();
@@ -106,45 +104,56 @@ public class TelaCidade extends javax.swing.JInternalFrame {
 
         jPanel2.setBackground(new java.awt.Color(153, 204, 255));
 
-        jLabel1Adicionar.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1Adicionar.setText("Adicionar");
+        jButton1_novo.setText("Novo");
+        jButton1_novo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1_novoActionPerformed(evt);
+            }
+        });
 
-        jLabel5_alterar.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5_alterar.setText("Alterar");
+        jButton2_salvar.setText("Salvar");
+        jButton2_salvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2_salvarActionPerformed(evt);
+            }
+        });
 
-        jLabel6_salvar.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel6_salvar.setText("Salvar");
+        jButton3_alterar.setText("Alterar");
+        jButton3_alterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3_alterarActionPerformed(evt);
+            }
+        });
 
-        jLabel7_apagar.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel7_apagar.setText("Apagar");
+        jButton4_Excluir.setText("Excluir");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
+                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5_alterar, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1Adicionar, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                    .addComponent(jButton3_alterar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1_novo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6_salvar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel7_apagar, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26))
+                    .addComponent(jButton2_salvar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton4_Excluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(13, 13, 13))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addGap(19, 19, 19)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1Adicionar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel6_salvar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton1_novo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton2_salvar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5_alterar)
-                    .addComponent(jLabel7_apagar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton3_alterar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton4_Excluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18))
         );
 
         jTable1_assuntos.setModel(new javax.swing.table.DefaultTableModel(
@@ -205,19 +214,43 @@ public class TelaCidade extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField1_UsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1_UsuarioActionPerformed
-        // TODO add your handling code here:
+	// TODO add your handling code here:
 	// this function no
     }//GEN-LAST:event_jTextField1_UsuarioActionPerformed
 
+    private void jButton2_salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2_salvarActionPerformed
+       //aqui
+       Cidade cidade = new Cidade();
+       cidade.setNome_cidade(jTextField1_Usuario.getText());
+     
+       Estado estado = (Estado) jComboBox1_estado.getSelectedItem();
+       
+       if(camposPreenchidos(cidade.getNome_cidade())){
+	   if(controo.salvarCidade(cidade)){
+	      JOptionPane.showMessageDialog(null, "Dados salvo com sucesso.");
+	   }else{
+	      JOptionPane.showMessageDialog(null, "Erro ao salvar.");
+	   }
+       }
+    }//GEN-LAST:event_jButton2_salvarActionPerformed
+
+    private void jButton3_alterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3_alterarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3_alterarActionPerformed
+
+    private void jButton1_novoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_novoActionPerformed
+        
+    }//GEN-LAST:event_jButton1_novoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1_novo;
+    private javax.swing.JButton jButton2_salvar;
+    private javax.swing.JButton jButton3_alterar;
+    private javax.swing.JButton jButton4_Excluir;
     private javax.swing.JComboBox<Object> jComboBox1_estado;
-    private javax.swing.JLabel jLabel1Adicionar;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5_alterar;
-    private javax.swing.JLabel jLabel6_salvar;
-    private javax.swing.JLabel jLabel7_apagar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -227,21 +260,47 @@ public class TelaCidade extends javax.swing.JInternalFrame {
     // End of variables declaration//GEN-END:variables
 
     private void carregarTabela() {
-        ArrayList linhas = new ArrayList();        
-        String[] colunas = new String[]{"Códido", "Nome", "Estado"};
-               
-        
-        //Estado estado;
-        
-        for (Cidade cidade : controo.carregarCidades()) {
-            //estado = controo.buscaEstadoPeloCodigo(cidade.getCod_estado());
-            
-            linhas.add(new Object[]{cidade.getCod_cidade(),
-	                            cidade.getNome_cidade(),
-	                            cidade.getCod_estado()});
-        }
-        
-       Tabela tabela = new Tabela(linhas, colunas);
-       jTable1_assuntos.setModel(tabela);
+	ArrayList linhas = new ArrayList();
+	String[] colunas = new String[]{"Códido", "Nome", "Estado"};
+
+	// foi feito para pegar o nome do estado e não o codigo
+	Estado estado;
+	for (Cidade cidade : controo.carregarCidades()) {
+	    estado = controo.buscarEstadoPeloCodigo(cidade.getCod_estado());
+
+	    linhas.add(new Object[]{cidade.getCod_cidade(),
+		cidade.getNome_cidade(),
+		estado.getNome_estado()});
+	}
+
+	Tabela tabela = new Tabela(linhas, colunas);
+	jTable1_assuntos.setModel(tabela);
+
+	// setar o tamanho da coluna
+	jTable1_assuntos.getColumnModel().getColumn(0).setPreferredWidth(36);
+	jTable1_assuntos.getColumnModel().getColumn(1).setPreferredWidth(36);
+	jTable1_assuntos.getColumnModel().getColumn(2).setPreferredWidth(36);
+	//nao pode ser redimensionado
+	jTable1_assuntos.getColumnModel().getColumn(0).setResizable(false);
+	jTable1_assuntos.getColumnModel().getColumn(0).setResizable(false);
+	jTable1_assuntos.getColumnModel().getColumn(0).setResizable(false);
+	// nao deixa troca as colunas da tabela
+        jTable1_assuntos.getTableHeader().setReorderingAllowed(false);
+	//so deixa selecionar uma linha por vez
+	jTable1_assuntos.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+    }
+
+    private boolean camposPreenchidos(String nome) {
+	String mensagem = "Preencha o campo";
+	boolean resul = true;
+	
+	if(nome.equals("")){
+	    mensagem += " *nome";
+	    resul = false;
+	}
+	if(!resul){
+	    JOptionPane.showMessageDialog(null, mensagem);
+	}
+	return resul;
     }
 }

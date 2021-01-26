@@ -79,7 +79,7 @@ public class CidadeDAO {
     public List<Cidade> listarCidades() {
 	List<Cidade> listaDeCidade = new ArrayList<>();
 	try {
-	    String sql = "selet * from cidade";
+	   String sql = "SELECT * FROM CIDADE";
 	PreparedStatement pst = conexao.getConexao().prepareStatement(sql);
 	    ResultSet rs = pst.executeQuery();
 

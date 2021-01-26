@@ -28,4 +28,13 @@ public class ControladoraCidade2 {
     public List<Estado> ListarEstado() {
 	return edao.ListarEstado();
     }
+    
+    public Estado buscarEstadoPeloCodigo(int cod_estado){
+         return edao.buscarEstadoPeloCodigo(cod_estado);
+    }
+    
+    public boolean salvarCidade(Cidade cidade){
+	return cdao.salvar(cidade);
+    
+    }
 }

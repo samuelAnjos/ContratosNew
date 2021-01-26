@@ -93,5 +93,27 @@ public class EstadoDAO {
 	return listaEstados;
 
     }
+    
+    public Estado buscarEstadoPeloCodigo(int cod_estado){
+	Estado estado = new Estado();
+	try {
+	    String sql = "select * from estado where cod_estado = ?";
+	    PreparedStatement pst = conexao.getConexao().prepareStatement(sql);
+	    pst.setInt(1, cod_estado);
+	    ResultSet rs = pst.executeQuery();
+	    
+	    while(rs.next()){
+		
+	        estado.setCod_estado(rs.getInt("cod_estado"));
+		estado.setNome_estado(rs.getString("nome_estado"));
+	    }
+	    conexao.desconecta();
+	    return estado;
+	} catch (Exception e) {
+	    System.out.println("Erro: " + e);
+	}
+	
+	return estado;
+    }
 
 }
