@@ -17,8 +17,8 @@ public class ControladoraCidade2 {
     EstadoDAO edao;
 
     public ControladoraCidade2() {
-	    cdao = new CidadeDAO();
-            edao = new EstadoDAO();
+	cdao = new CidadeDAO();
+	edao = new EstadoDAO();
     }
 
     public List<Cidade> carregarCidades() {
@@ -28,13 +28,20 @@ public class ControladoraCidade2 {
     public List<Estado> ListarEstado() {
 	return edao.ListarEstado();
     }
-    
-    public Estado buscarEstadoPeloCodigo(int cod_estado){
-         return edao.buscarEstadoPeloCodigo(cod_estado);
+
+    public Estado buscarEstadoPeloCodigo(int cod_estado) {
+	return edao.buscarEstadoPeloCodigo(cod_estado);
+    }
+
+    public boolean salvarCidade(Cidade cidade) {
+	return cdao.salvar(cidade);
     }
     
-    public boolean salvarCidade(Cidade cidade){
-	return cdao.salvar(cidade);
+    public int buscaEstadoPeloNome(String nome_estado) {
+	return edao.buscarEstPeloNome(nome_estado);
+    }
     
+    public boolean atualizarCidade(Cidade cidade) {
+	return cdao.atualizarCidade(cidade);
     }
 }

@@ -15,13 +15,15 @@ import javax.swing.ListSelectionModel;
 public class TelaCidade extends javax.swing.JInternalFrame {
 
     ControladoraCidade2 controo;
-
+    Cidade cidade;
+    
     /**
      * Creates new form TelaCidade
      */
     public TelaCidade() {
 	initComponents();
 	controo = new ControladoraCidade2();
+	cidade = new Cidade();
 	for (Estado estado : controo.ListarEstado()) {
 	    jComboBox1_estado.addItem(estado);
 	}
@@ -167,6 +169,11 @@ public class TelaCidade extends javax.swing.JInternalFrame {
 
             }
         ));
+        jTable1_assuntos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jTable1_assuntosMousePressed(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1_assuntos);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -220,10 +227,11 @@ public class TelaCidade extends javax.swing.JInternalFrame {
 
     private void jButton2_salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2_salvarActionPerformed
        //aqui
-       Cidade cidade = new Cidade();
+       
        cidade.setNome_cidade(jTextField1_Usuario.getText());
      
        Estado estado = (Estado) jComboBox1_estado.getSelectedItem();
+       cidade.setCod_estado(estado.getCod_estado());
        
        if(camposPreenchidos(cidade.getNome_cidade())){
 	   if(controo.salvarCidade(cidade)){
@@ -235,12 +243,34 @@ public class TelaCidade extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton2_salvarActionPerformed
 
     private void jButton3_alterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3_alterarActionPerformed
-        // TODO add your handling code here:
+        // metodo para alterar um cadastro
+	// tenho que selecionar uma linha da tabela 
+	// e qd clicar preencher os campos e dai pode 
+	// apaguar modificar e alterar COMO?
+	cidade.setNome_cidade(jTextField1_Usuario.getText());
+	if(camposPreenchidos(cidade.getNome_cidade())){
+	    if(controo.atualizarCidade(cidade)){
+	        JOptionPane.showMessageDialog(null, "Cidade atualizado com sucesso");
+	    }else{
+		JOptionPane.showMessageDialog(null, "Erro na alteração");
+	    }
+	}
     }//GEN-LAST:event_jButton3_alterarActionPerformed
 
     private void jButton1_novoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_novoActionPerformed
         
     }//GEN-LAST:event_jButton1_novoActionPerformed
+
+    private void jTable1_assuntosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1_assuntosMousePressed
+        int linhaSelecinda = jTable1_assuntos.getSelectedRow();
+	cidade.setCod_cidade((int) jTable1_assuntos.getValueAt(linhaSelecinda, 0));
+	cidade.setNome_cidade((String) jTable1_assuntos.getValueAt(linhaSelecinda, 1));
+	String nomeEstado = (String) jTable1_assuntos.getValueAt(linhaSelecinda, 2);
+	cidade.setCod_estado(controo.buscaEstadoPeloNome(nomeEstado));
+	
+	jTextField1_Usuario.setText(cidade.getNome_cidade());
+	jComboBox1_estado.setSelectedIndex(cidade.getCod_estado()-1);
+    }//GEN-LAST:event_jTable1_assuntosMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

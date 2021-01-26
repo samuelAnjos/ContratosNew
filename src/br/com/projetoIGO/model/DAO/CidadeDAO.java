@@ -23,40 +23,42 @@ public class CidadeDAO {
     // C(salvar) R(listar/ler) U(Atualizar) D(Deletar) para todos
     public boolean salvar(Cidade cidade) {
 	try {
-	    String sql = "insert into cidade (nome_cidade, cod_estado) values (?,?);";
+	    String sql = "INSERT INTO CIDADE (nome_cidade, cod_estado) "
+		    + " VALUES (?,?);";
 
-	    PreparedStatement pst = conexao.getConexao().prepareStatement(sql);
-	    pst.setString(1, cidade.getNome_cidade());
-	    pst.setInt(2, cidade.getCod_estado());
+	    PreparedStatement stm = conexao.getConexao().prepareStatement(sql);
+	    stm.setString(1, cidade.getNome_cidade());
+	    stm.setInt(2, cidade.getCod_estado());
 
-	    pst.execute();
-	    //depois vou // nesses 2 abaixo para testar
+	    stm.execute();
 	    conexao.getConexao().commit();
 	    conexao.desconecta();
 	    return true;
 	} catch (Exception e) {
 	    System.out.println("Erro: " + e);
 	}
+
 	return false;
     }
 
     public boolean atualizarCidade(Cidade cidade) {
 	try {
-	    String sql = "update cidade set nome_cidade = ?, cod_estado = ?"
-		    + "where cod_cidade = ?";
+	    String sql = "UPDATE CIDADE SET nome_cidade=?,cod_estado=?"
+		    +"WHERE cod_cidade=? ";
 
-	    PreparedStatement pst = conexao.getConexao().prepareStatement(sql);
-	    pst.setString(1, cidade.getNome_cidade());
-	    pst.setInt(2, cidade.getCod_cidade());
-	    pst.setInt(3, cidade.getCod_estado());
+	    PreparedStatement stm = conexao.getConexao().prepareStatement(sql);
+	    stm.setString(1, cidade.getNome_cidade());
+	    stm.setInt(2, cidade.getCod_estado());
+	    stm.setInt(3, cidade.getCod_cidade());
 
-	    pst.execute();
+	    stm.execute();
 	    conexao.getConexao().commit();
 	    conexao.desconecta();
 	    return true;
 	} catch (Exception e) {
 	    System.out.println("Erro: " + e);
 	}
+
 	return false;
     }
 
@@ -79,8 +81,8 @@ public class CidadeDAO {
     public List<Cidade> listarCidades() {
 	List<Cidade> listaDeCidade = new ArrayList<>();
 	try {
-	   String sql = "SELECT * FROM CIDADE";
-	PreparedStatement pst = conexao.getConexao().prepareStatement(sql);
+	    String sql = "SELECT * FROM CIDADE";
+	    PreparedStatement pst = conexao.getConexao().prepareStatement(sql);
 	    ResultSet rs = pst.executeQuery();
 
 	    while (rs.next()) {

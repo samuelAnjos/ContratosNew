@@ -21,6 +21,7 @@ public class EstadoDAO {
     }
 
     public boolean salvar(Estado estado) {
+	// estado
 	try {
 	    String sql = "insert into estado (nome_estado) values  (?);";
 
@@ -115,5 +116,31 @@ public class EstadoDAO {
 	
 	return estado;
     }
+
+    public int buscarEstPeloNome(String nome_estado) {
+	int codigo = 0;
+	try {
+	    String sql = "select * from estado where nome_estado = ?";
+	    PreparedStatement pst = conexao.getConexao().prepareStatement(sql);
+	    pst.setString(1, nome_estado);
+	    ResultSet rs = pst.executeQuery();
+	    
+	    while(rs.next()){
+		
+	    //codigo = rs.getInt("cod_estado"));
+		codigo=rs.getInt("cod_estado");
+	    }
+	    conexao.desconecta();
+	    return codigo;
+	} catch (Exception e) {
+	    System.out.println("Erro: " + e);
+	}
+	
+	return codigo;
+    }
+
+    
+
+    
 
 }
