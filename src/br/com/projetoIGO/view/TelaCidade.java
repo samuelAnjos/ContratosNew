@@ -363,5 +363,6 @@ public class TelaCidade extends javax.swing.JInternalFrame {
 	}
 	return resul;
     }
-    //metodo para selecionar os botoes
+    //metodo para selecionar os botoes que depois eu tenho que apagar
+    // to comentando so para ver comite vai
 }
