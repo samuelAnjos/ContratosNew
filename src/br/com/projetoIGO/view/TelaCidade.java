@@ -336,7 +336,7 @@ public class TelaCidade extends javax.swing.JInternalFrame {
 	Tabela tabela = new Tabela(linhas, colunas);
 	jTable1_assuntos.setModel(tabela);
 
-	// setar o tamanho da coluna
+	// setar o tamanho da colunaa
 	jTable1_assuntos.getColumnModel().getColumn(0).setPreferredWidth(36);
 	jTable1_assuntos.getColumnModel().getColumn(1).setPreferredWidth(36);
 	jTable1_assuntos.getColumnModel().getColumn(2).setPreferredWidth(36);
