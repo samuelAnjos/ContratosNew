@@ -44,4 +44,8 @@ public class ControladoraCidade2 {
     public boolean atualizarCidade(Cidade cidade) {
 	return cdao.atualizarCidade(cidade);
     }
+    
+    public boolean excluirCadastro(int cod_cidade){
+	return cdao.apagarCidade(cod_cidade);
+    }
 }

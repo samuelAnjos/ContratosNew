@@ -64,7 +64,7 @@ public class TelaPricipal extends javax.swing.JFrame {
         );
         jDesktopPane2_AzulLayout.setVerticalGroup(
             jDesktopPane2_AzulLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 414, Short.MAX_VALUE)
+            .addGap(0, 436, Short.MAX_VALUE)
         );
 
         jMenu1.setText("Contratos");

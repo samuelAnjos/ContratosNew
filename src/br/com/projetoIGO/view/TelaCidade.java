@@ -57,6 +57,7 @@ public class TelaCidade extends javax.swing.JInternalFrame {
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
+        setTitle("Tela Cidade");
 
         jPanel1.setBackground(new java.awt.Color(153, 204, 255));
 
@@ -128,6 +129,11 @@ public class TelaCidade extends javax.swing.JInternalFrame {
         });
 
         jButton4_Excluir.setText("Excluir");
+        jButton4_Excluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4_ExcluirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -271,6 +277,30 @@ public class TelaCidade extends javax.swing.JInternalFrame {
 	jTextField1_Usuario.setText(cidade.getNome_cidade());
 	jComboBox1_estado.setSelectedIndex(cidade.getCod_estado()-1);
     }//GEN-LAST:event_jTable1_assuntosMousePressed
+
+    private void jButton4_ExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4_ExcluirActionPerformed
+      
+	/* 
+	tbm pode no confirma fazer assim
+	if(linhaSelecionada > -1){
+	   Object[] opcao = {"Sim","Não"}
+	   int confirma = joptionPana.showOptionDialog(null,"Deseja realmente excluir "+(String)jTable1_assuntos.getValueAt(linhaSelecionada,1),"Excuir cidade",joptionPane.DEFALT_OPTION,JoptionPane.WARNING_MESSAGE,null,opcao, opcao[0]);
+	if(confirma==0){
+	  controo.ecliur();
+	}
+	}
+	
+	*/
+	int linhaSelecionada = jTable1_assuntos.getSelectedRow();
+	if(linhaSelecionada > -1){
+	   int confirma = JOptionPane.showConfirmDialog(null, "Tem certeza de que deseja exclui "+jTable1_assuntos.getValueAt(linhaSelecionada,1)+"?","Atenção",JOptionPane.YES_NO_OPTION);
+	   if(confirma == JOptionPane.YES_OPTION){
+	       controo.excluirCadastro(cidade.getCod_cidade());
+	   }
+	}else{
+	   JOptionPane.showMessageDialog(null, "Não pode excluir cidade!!!");
+	}
+    }//GEN-LAST:event_jButton4_ExcluirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
