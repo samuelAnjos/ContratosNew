@@ -29,6 +29,8 @@ public class TelaCidade extends javax.swing.JInternalFrame {
 	}
 
 	carregarTabela();
+	camposIniciais();   
+	
     }
 
     /**
@@ -241,6 +243,9 @@ public class TelaCidade extends javax.swing.JInternalFrame {
        
        if(camposPreenchidos(cidade.getNome_cidade())){
 	   if(controo.salvarCidade(cidade)){
+	       limarCampos();
+	       carregarTabela();
+	       camposIniciais();
 	      JOptionPane.showMessageDialog(null, "Dados salvo com sucesso.");
 	   }else{
 	      JOptionPane.showMessageDialog(null, "Erro ao salvar.");
@@ -257,6 +262,9 @@ public class TelaCidade extends javax.swing.JInternalFrame {
 	if(camposPreenchidos(cidade.getNome_cidade())){
 	    if(controo.atualizarCidade(cidade)){
 	        JOptionPane.showMessageDialog(null, "Cidade atualizado com sucesso");
+		carregarTabela();
+		limarCampos();
+		camposIniciais();
 	    }else{
 		JOptionPane.showMessageDialog(null, "Erro na alteração");
 	    }
@@ -264,11 +272,17 @@ public class TelaCidade extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton3_alterarActionPerformed
 
     private void jButton1_novoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_novoActionPerformed
-        
+        jTextField1_Usuario.setEnabled(true);
+	jComboBox1_estado.setEnabled(true);
+	abilitarBotoes(false, true, false, false);        
     }//GEN-LAST:event_jButton1_novoActionPerformed
 
     private void jTable1_assuntosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1_assuntosMousePressed
-        int linhaSelecinda = jTable1_assuntos.getSelectedRow();
+        abilitarBotoes(false, false, true, true);
+	 jTextField1_Usuario.setEnabled(true);
+	jComboBox1_estado.setEnabled(true);
+	
+	int linhaSelecinda = jTable1_assuntos.getSelectedRow();
 	cidade.setCod_cidade((int) jTable1_assuntos.getValueAt(linhaSelecinda, 0));
 	cidade.setNome_cidade((String) jTable1_assuntos.getValueAt(linhaSelecinda, 1));
 	String nomeEstado = (String) jTable1_assuntos.getValueAt(linhaSelecinda, 2);
@@ -296,6 +310,9 @@ public class TelaCidade extends javax.swing.JInternalFrame {
 	   int confirma = JOptionPane.showConfirmDialog(null, "Tem certeza de que deseja exclui "+jTable1_assuntos.getValueAt(linhaSelecionada,1)+"?","Atenção",JOptionPane.YES_NO_OPTION);
 	   if(confirma == JOptionPane.YES_OPTION){
 	       controo.excluirCadastro(cidade.getCod_cidade());
+	       carregarTabela();
+	       limarCampos();
+	       camposIniciais();
 	   }
 	}else{
 	   JOptionPane.showMessageDialog(null, "Não pode excluir cidade!!!");
@@ -363,6 +380,21 @@ public class TelaCidade extends javax.swing.JInternalFrame {
 	}
 	return resul;
     }
-    //metodo para selecionar os botoes que depois eu tenho que apagar
-    // to comentando so para ver comite vai
+    
+    public void abilitarBotoes(boolean novo, boolean salvar, boolean alterar, boolean excluir){
+    jButton1_novo.setEnabled(novo);
+    jButton2_salvar.setEnabled(salvar);
+    jButton3_alterar.setEnabled(alterar);
+    jButton4_Excluir.setEnabled(excluir);
+    }
+    
+    public void camposIniciais(){
+	jTextField1_Usuario.setEnabled(false);
+	jComboBox1_estado.setEnabled(false);
+	abilitarBotoes(true, false, false, false);
+    }
+    
+    public void limarCampos(){
+	jTextField1_Usuario.setText("");
+    }
 }
