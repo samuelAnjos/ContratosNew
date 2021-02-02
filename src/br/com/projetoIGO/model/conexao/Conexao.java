@@ -14,7 +14,7 @@ public class Conexao {
     private final String driver = "com.mysql.jdbc.Driver";
     private final String url = "jdbc:mysql://localhost:3306/bancocontratosnovo";
     private java.sql.Connection conexao = null;
-    String password = "ovelhapreta";
+    String password = "";
     String user = "root";
 
     public Conexao() {
